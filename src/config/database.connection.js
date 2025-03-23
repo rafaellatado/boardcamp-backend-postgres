@@ -9,3 +9,9 @@ const configDatabase = {
 };
 
 export const db = new Pool(configDatabase);
+
+export function testeDBConnection() {
+  db.connect()
+    .then(() => console.log('Successful connection with database!'))
+    .catch((err) => console.error('Failed to connect'))
+}
