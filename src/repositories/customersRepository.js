@@ -2,7 +2,7 @@ import { db } from "../config/database.connection.js";
 
 async function getCustomers() {
   const result = await db.query(`SELECT * FROM customers;`);
-  return result.rows;
+  return result.rows; 
 }
 
 async function getCustomerById(id) {
