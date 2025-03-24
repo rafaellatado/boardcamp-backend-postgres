@@ -18,10 +18,16 @@ async function postGame(gameData) {
   );
 }
 
+async function getGameById(gameId) {
+  const result = await db.query(`SELECT * FROM games WHERE id = $1;`, [gameId]);
+  return result.rows[0]; // Returns the game if found, otherwise undefined
+}
+
 const gamesRepository = {
   getGames,
   findGameByName,
-  postGame
+  postGame,
+  getGameById
 }
 
 export default gamesRepository;
